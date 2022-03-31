@@ -1,0 +1,23 @@
+{
+  "name": "PrimerRepo",
+  "version": "1.0.0",
+  "description": "\"# primerRepo\" \r ss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://oauth2: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@github.com/nicozar03/primerRepo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicozar03/primerRepo/issues"
+  },
+  "homepage": "https://github.com/nicozar03/primerRepo#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
