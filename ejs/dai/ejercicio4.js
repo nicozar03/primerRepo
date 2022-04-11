@@ -40,6 +40,8 @@ class Deck{
      return this.deck.pop(6);
     }
   }
+
+// for i, i<1000 , i++   deck1.reset(); deck1.shuffle() deck1.deal();
   
   const deck1 = new Deck();
   console.log(deck1.deck);
