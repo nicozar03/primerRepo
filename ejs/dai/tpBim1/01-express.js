@@ -17,23 +17,22 @@ app.post("/numero_aleatorio", (req, res)=>{
 app.post("/iniciar_juego", (req, res)=>{
     let arrayCartones=[];
     for(let i=0; i< req.body.numero; i++){
-        let carton=[];
+        let numerosCartones=[];
         for(let i=0; i<10; i++){
             let numero=NumeroAleatorio(100);
 
-            carton.push(numero);
+            numerosCartones.push(numero);
         }
-        arrayCartones.push(carton);
+        arrayCartones.push(numerosCartones);
     }
     res.send([arrayCartones]);
 });
 app.get("/obtener_carton", (req, res)=>{
-    let arrayPersonas=["Cherni", "Zarlen", "Melvin", "Popo", "Mati1", "Mati2","Mati3", "Mati4", "Mati5", "Mati6"]
+    let arrayPersonas=[]
     for(let i=0; i< req.body.numero; i++){  
         let personas=[];
         for(let i=0; i<10; i++){
-            let numero=NumeroAleatorio(100);
-            personas.push(numero);
+            personas.push([arrayCartones]);
         }
         arrayPersonas.push(personas);
 
