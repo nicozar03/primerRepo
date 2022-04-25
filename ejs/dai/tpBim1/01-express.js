@@ -30,12 +30,8 @@ app.post("/iniciar_juego", (req, res)=>{
 app.get("/obtener_carton", (req, res)=>{
     let arrayPersonas=[]
     for(let i=0; i< req.body.numero; i++){  
-        let personas=[];
-        for(let i=0; i<10; i++){
-            personas.push([arrayCartones]);
-        }
-        arrayPersonas.push(personas);
-
+        arrayPersonas.push(req.body.personaNombres[i]);
+        
     }
 
 res.send([arrayPersonas])
