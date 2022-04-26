@@ -3,8 +3,10 @@ const app=express();
 const port=3000;
 app.use(express.json());
 
-const NumeroAleatorio = max => Math.floor(Math.random()*(max-1))+1;
-var Cartones = {};
+function NumeroAleatorio(max){
+return Math.floor(Math.random()*(max-1))+1;
+}
+
 
 app.post("/numero_aleatorio", (req, res)=>{
     console.log(req.body.numero);
@@ -13,24 +15,24 @@ app.post("/numero_aleatorio", (req, res)=>{
 });
 
 app.post("/iniciar_juego", (req, res)=>{
-    for(let i=0; i < parseInt(req.body.numero); i++){
+    let arrayCartones=[];
+    for(let i=0; i< req.body.numero; i++){
         let numerosCartones=[];
-        for(let j=0; j<10; j++)
-            numerosCartones.push(NumeroAleatorio(100));
-        Cartones[i] = numerosCartones;
+        for(let i=0; i<10; i++){
+            let numero=NumeroAleatorio(100);
+
+            numerosCartones.push(numero);
+        }
+        arrayCartones.push(numerosCartones);
     }
-    res.send(Cartones);
+    res.send([arrayCartones]);
 });
 app.get("/obtener_carton", (req, res)=>{
     let arrayPersonas=[]
-    if (Cartones[req.body.nombre]) res.send(Cartones[req.body.nombre])
-    else {
-        for(let i=0; i< req.body.numero; i++){  
-            arrayPersonas.push(req.body.personaNombres[i]);
-            
-        }
+    for(let i=0; i< req.body.numero; i++){  
+        arrayPersonas.push(req.body.personaNombres[i]);
+        
     }
-    
 
 res.send([arrayPersonas])
 });
