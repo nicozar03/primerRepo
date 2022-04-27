@@ -22,7 +22,7 @@ app.post("/iniciar_juego", (req, res)=>{
     res.send(Cartones);
 });
 
-app.get(["/cartones", "obtener_carton"], (req, res)=>{
+app.get(["/cartones", "/obtener_carton"], (req, res)=>{
     //let arrayPersonas=[]
     console.log(req.query.nombre);
     if (Cartones[req.query.nombre]) res.send(Cartones[req.query.nombre])
