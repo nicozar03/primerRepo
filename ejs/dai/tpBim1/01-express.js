@@ -1,12 +1,10 @@
 const express= require('express')
 const app=express();
-const port=3000;
+const port=3001;
 app.use(express.json());
 
-function NumeroAleatorio(max){
-return Math.floor(Math.random()*(max-1))+1;
-}
-
+const NumeroAleatorio = max => Math.floor(Math.random()*(max-1))+1;
+var Cartones = {};
 
 app.post("/numero_aleatorio", (req, res)=>{
     console.log(req.body.numero);
@@ -15,30 +13,30 @@ app.post("/numero_aleatorio", (req, res)=>{
 });
 
 app.post("/iniciar_juego", (req, res)=>{
-    let arrayCartones=[];
-    for(let i=0; i< req.body.numero; i++){
+    for(let i=0; i < parseInt(req.body.numero); i++){
         let numerosCartones=[];
-        for(let i=0; i<10; i++){
-            let numero=NumeroAleatorio(100);
-
-            numerosCartones.push(numero);
-        }
-        arrayCartones.push(numerosCartones);
+        for(let j=0; j<10; j++)
+            numerosCartones.push(NumeroAleatorio(100));
+        Cartones[i] = numerosCartones;
     }
-    res.send([arrayCartones]);
+    res.send(Cartones);
 });
-app.get("/obtener_carton", (req, res)=>{
-    let arrayPersonas=[]
-    for(let i=0; i< req.body.numero; i++){  
-        arrayPersonas.push(req.body.personaNombres[i]);
-        
-    }
 
-res.send([arrayPersonas])
+app.get("/obtener_carton", (req, res)=>{
+    //let arrayPersonas=[]
+    console.log(req.query.nombre);
+    if (Cartones[req.query.nombre]) res.send(Cartones[req.query.nombre])
+    /*else {
+        for(let i=0; i< req.body.numero; i++){  
+            arrayPersonas.push(req.body.nombre[i]);
+            
+        }
+    }
+    */
+    res.send("Not found");
+    //res.send([arrayPersonas])
 });
 
 app.listen(port, ()=>{
     console.log(`example app listening on port ${port}`)
 });
-
-mm
