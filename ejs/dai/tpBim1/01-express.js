@@ -22,7 +22,7 @@ app.post("/iniciar_juego", (req, res)=>{
     res.send(Cartones);
 });
 
-app.get("/obtener_carton", (req, res)=>{
+app.get(["/cartones", "obtener_carton"], (req, res)=>{
     //let arrayPersonas=[]
     console.log(req.query.nombre);
     if (Cartones[req.query.nombre]) res.send(Cartones[req.query.nombre])
@@ -37,17 +37,6 @@ app.get("/obtener_carton", (req, res)=>{
     //res.send([arrayPersonas])
 });
 
-app.get("/cartones", (req, res)=>{
-    if (Cartones[req.query.nombre]) res.send(Cartones[req.query.nombre])
-    else {
-
-        res.send(Cartones[req.query.numero]);
-            
-        }
-    }
-    
-    //res.send([arrayPersonas])
-);
 
 app.listen(port, ()=>{
     console.log(`example app listening on port ${port}`)
