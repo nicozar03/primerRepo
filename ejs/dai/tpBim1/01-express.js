@@ -22,19 +22,20 @@ app.post("/iniciar_juego", (req, res)=>{
     res.send(Cartones);
 });
 
-app.get(["/cartones", "/obtener_carton"], (req, res)=>{
+app.get( "/obtener_carton", (req, res)=>{
     //let arrayPersonas=[]
     console.log(req.query.nombre);
     if (Cartones[req.query.nombre]) res.send(Cartones[req.query.nombre])
-    /*else {
-        for(let i=0; i< req.body.numero; i++){  
-            arrayPersonas.push(req.body.nombre[i]);
-            
-        }
+});
+
+app.get( "/cartones", (req, res)=>{
+    //let arrayPersonas=[]
+    console.log(req.query.nombre);
+    if (Cartones[req.query.nombre]) res.send(Cartones[req.query.nombre])
+    else{
+        res.send("not found");
     }
-    */
-    res.send("Not found");
-    //res.send([arrayPersonas])
+
 });
 
 
