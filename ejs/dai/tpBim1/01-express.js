@@ -20,7 +20,6 @@ app.post("/iniciar_juego", (req, res)=>{
         for(let j=0; j<10; j++)
             numerosCartones.push(NumeroAleatorio(100));
         Cartones[i] = numerosCartones;
-        /*Cartones.push(numerosCartones);*/
     }
     res.send(Cartones);
 });
@@ -44,22 +43,16 @@ app.get( "/cartones", (req, res)=>{
 });
 
 app.get("/sacar_numero"),(req,res)=>{
-        console.log ("me rindo");
+    console.log("Perdón, no lo pudimos hacer")
+    res.send()
+        
 
 
 
 }
 
 
-/*app.get("/cartones/:nombre?", function(req,res){
-    let nombre=req.params.nombre;
-    console.log(req.params.nombre)
-    Cartones.find({nombre:nombre})
-    if (Cartones[req.params.nombre]==null){
-        res.send(Cartones);
 
-    }
-})*/
 
 
 
