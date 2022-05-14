@@ -1,7 +1,7 @@
 /*const express= require('express')
 const app=express();
 const port=3001;
-app.use(express.json());
+app.use(express.json());ccc
 
 const NumeroAleatorio = max => Math.floor(Math.random()*(max-1))+1;
 max=150;
